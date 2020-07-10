@@ -2,8 +2,16 @@ server:
   port: 9000
 
 spring:
+  application:
+    name: config-server
   cloud:
     config:
       server:
         git:
-          uri: ${user.home}\\MyStuff\\Workspaces\\Spring_Cloud\\Todo-app_config # loading from local filesystem
+          # Loading from local filesystem.
+          # Use file:, unless it will use the Temp folder.
+          # Commit after the changes, unless the system won't recognize it.
+#          uri: file:${user.home}\\MyStuff\\Workspaces\\Spring_Cloud\\Todo-app_config
+
+          # Loading from Github
+          uri: https://github.com/LasterBergamot/Todo-app_config
