@@ -3,7 +3,6 @@ package com.todoapp.services.todo.todoservices.service.impl;
 import com.todoapp.services.todo.todoservices.model.todo.Todo;
 import com.todoapp.services.todo.todoservices.repository.todo.TodoRepository;
 import com.todoapp.services.todo.todoservices.service.ITodoService;
-import com.todoapp.services.todo.todoservices.util.MongoUtil;
 import com.todoapp.services.todo.todoservices.util.TodoUtil;
 import org.apache.commons.lang3.ObjectUtils;
 import org.slf4j.Logger;
