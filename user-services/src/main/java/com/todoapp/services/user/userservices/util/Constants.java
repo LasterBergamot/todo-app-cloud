@@ -17,6 +17,8 @@ public class Constants {
 
     public static final String KEY_GITHUB_ID = "github_id";
     public static final String KEY_GOOGLE_ID = "google_id";
+    public static final String KEY_NAME = "name";
+    public static final String KEY_USER = "user";
 
     public static final String INDEX_NAME_USER_GITHUB_ID_INDEX = "User_github_id_index";
     public static final String INDEX_NAME_USER_GOOGLE_ID_INDEX = "User_google_id_index";
@@ -36,4 +38,9 @@ public class Constants {
     public static final String GOOGLE_ID = "156246724635752711248";
     public static final String GITHUB_ID = "56322326";
     public static final String EMAIL = "asd123@asd.com";
+
+    public static final String GET_MAPPING_USERNAME = "/username";
+    public static final String GET_MAPPING_HANDLE_USER = "/handleUser";
+
+    public static final String PRE_AUTHORIZE_ROLE_USER = "hasRole('ROLE_USER')";
 }

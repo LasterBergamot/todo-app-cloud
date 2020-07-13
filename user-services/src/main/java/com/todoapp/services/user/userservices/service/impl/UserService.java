@@ -3,6 +3,7 @@ package com.todoapp.services.user.userservices.service.impl;
 import com.todoapp.services.user.userservices.model.User;
 import com.todoapp.services.user.userservices.repository.UserRepository;
 import com.todoapp.services.user.userservices.service.IUserService;
+import com.todoapp.services.util.utilservices.util.MongoUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

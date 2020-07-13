@@ -13,18 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Collections;
 import java.util.Map;
 
+import static com.todoapp.services.user.userservices.util.Constants.GET_MAPPING_HANDLE_USER;
+import static com.todoapp.services.user.userservices.util.Constants.GET_MAPPING_USERNAME;
+import static com.todoapp.services.user.userservices.util.Constants.KEY_NAME;
+import static com.todoapp.services.user.userservices.util.Constants.KEY_USER;
+import static com.todoapp.services.user.userservices.util.Constants.PRE_AUTHORIZE_ROLE_USER;
+
 @RestController
 public class UserRestController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserRestController.class);
-
-    private static final String GET_MAPPING_USERNAME = "/username";
-    private static final String GET_MAPPING_HANDLE_USER = "/handleUser";
-
-    private static final String KEY_NAME = "name";
-    private static final String KEY_USER = "user";
-
-    private static final String PRE_AUTHORIZE_ROLE_USER = "hasRole('ROLE_USER')";
 
     private final IUserService userService;
 
