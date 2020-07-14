@@ -9,9 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableEurekaClient
 @ComponentScan(basePackages = "com.todoapp.services.util.utilservices")
 public class UserServicesApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(UserServicesApplication.class, args);
 	}
-
 }
