@@ -12,21 +12,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
-@FeignClient(value = "todo-services") // the name of the service in Eureka
+import static com.todoapp.webapp.todoappwebapp.util.Constants.REQUEST_MAPPING_TODOS;
+import static com.todoapp.webapp.todoappwebapp.util.Constants.REQUEST_MAPPING_TODOS_WITH_TODO_ID_PATHVAR;
+import static com.todoapp.webapp.todoappwebapp.util.Constants.SERVICE_NAME_TODO_SERVICES;
+
+@FeignClient(value = SERVICE_NAME_TODO_SERVICES) // the name of the service in Eureka
 public interface TodoService {
 
-    @GetMapping("/todos")
+    @GetMapping(REQUEST_MAPPING_TODOS)
     ResponseEntity<List<Todo>> getAllTodos();
 
-    @GetMapping("/todos/{todoId}")
+    @GetMapping(REQUEST_MAPPING_TODOS_WITH_TODO_ID_PATHVAR)
     ResponseEntity<Object> getTodo(@PathVariable String todoId);
 
-    @PostMapping("/todos")
+    @PostMapping(REQUEST_MAPPING_TODOS)
     ResponseEntity<Object> saveTodo(@RequestBody Todo todo);
 
-    @PutMapping("/todos/{todoId}")
+    @PutMapping(REQUEST_MAPPING_TODOS_WITH_TODO_ID_PATHVAR)
     ResponseEntity<Object> updateTodo(@PathVariable String todoId, @RequestBody Todo todo);
 
-    @DeleteMapping("/todos/{todoId}")
+    @DeleteMapping(REQUEST_MAPPING_TODOS_WITH_TODO_ID_PATHVAR)
     ResponseEntity<Object> deleteTodo(@PathVariable String todoId);
 }

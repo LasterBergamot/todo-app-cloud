@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import static com.todoapp.webapp.todoappwebapp.util.Constants.REQUEST_MAPPING_TODOS;
+import static com.todoapp.webapp.todoappwebapp.util.Constants.REQUEST_MAPPING_TODOS_WITH_TODO_ID_PATHVAR;
+
 @RestController
 public class TodoRestController {
 
@@ -28,35 +31,35 @@ public class TodoRestController {
         this.todoService = todoService;
     }
 
-    @GetMapping("/todos")
+    @GetMapping(REQUEST_MAPPING_TODOS)
     public ResponseEntity<List<Todo>> getTodos() {
         LOGGER.info("Getting all Todos!");
 
         return todoService.getAllTodos();
     }
 
-    @GetMapping("/todos/{todoId}")
+    @GetMapping(REQUEST_MAPPING_TODOS_WITH_TODO_ID_PATHVAR)
     public ResponseEntity<Object> getTodo(@PathVariable String todoId) {
         LOGGER.info("Getting Todo from the database!");
 
         return todoService.getTodo(todoId);
     }
 
-    @PostMapping("/todos")
+    @PostMapping(REQUEST_MAPPING_TODOS)
     public ResponseEntity<Object> saveTodo(@RequestBody Todo todo) {
         LOGGER.info("Saving Todo into the database: {} !", todo);
 
         return todoService.saveTodo(todo);
     }
 
-    @PutMapping("/todos/{todoId}")
+    @PutMapping(REQUEST_MAPPING_TODOS_WITH_TODO_ID_PATHVAR)
     public ResponseEntity<Object> updateTodo(@PathVariable String todoId, @RequestBody Todo todo) {
         LOGGER.info("Updating Todo to {} !", todo);
 
         return todoService.updateTodo(todoId, todo);
     }
 
-    @DeleteMapping("/todos/{todoId}")
+    @DeleteMapping(REQUEST_MAPPING_TODOS_WITH_TODO_ID_PATHVAR)
     public ResponseEntity<Object> deleteTodo(@PathVariable String todoId) {
         LOGGER.info("Deleting Todo from the database!");
 
