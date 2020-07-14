@@ -7,7 +7,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableEurekaClient
-@ComponentScan(basePackages = "com.todoapp.services.util.utilservices")
+@ComponentScan(basePackages = "com.todoapp.services.util.utilservices") // required to use a bean from another module
+@ComponentScan(basePackages = "com.todoapp.services.user.userservices")
 public class UserServicesApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(UserServicesApplication.class, args);
