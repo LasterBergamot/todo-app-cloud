@@ -1,4 +1,4 @@
-package com.todoapp.webapp.todoappwebapp.client;
+package com.todoapp.webapp.todoappwebapp.client.todo;
 
 import com.todoapp.services.todo.todoservices.model.todo.Todo;
 import org.springframework.cloud.openfeign.FeignClient;

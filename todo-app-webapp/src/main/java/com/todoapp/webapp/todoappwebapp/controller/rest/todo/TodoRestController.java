@@ -1,7 +1,7 @@
 package com.todoapp.webapp.todoappwebapp.controller.rest.todo;
 
 import com.todoapp.services.todo.todoservices.model.todo.Todo;
-import com.todoapp.webapp.todoappwebapp.client.TodoService;
+import com.todoapp.webapp.todoappwebapp.client.todo.TodoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +40,7 @@ public class TodoRestController {
 
     @GetMapping(REQUEST_MAPPING_TODOS_WITH_TODO_ID_PATHVAR)
     public ResponseEntity<Object> getTodo(@PathVariable String todoId) {
-        LOGGER.info("Getting Todo from the database!");
+        LOGGER.info("Getting Todo from the database with id: {}!", todoId);
 
         return todoService.getTodo(todoId);
     }
