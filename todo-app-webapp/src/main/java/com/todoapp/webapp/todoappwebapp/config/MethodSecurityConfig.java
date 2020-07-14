@@ -1,4 +1,4 @@
-package com.todoapp.services.user.userservices.config;
+package com.todoapp.webapp.todoappwebapp.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;

@@ -1,4 +1,4 @@
-package com.todoapp.services.user.userservices.config;
+package com.todoapp.webapp.todoappwebapp.config;
 
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Configuration;

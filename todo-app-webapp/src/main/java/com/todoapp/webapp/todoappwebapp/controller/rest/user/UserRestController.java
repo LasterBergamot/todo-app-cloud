@@ -35,7 +35,10 @@ public class UserRestController {
     public Map<String, Object> getUsername(@AuthenticationPrincipal OAuth2User principal) {
         LOGGER.info("Getting username!");
 
-        return Collections.singletonMap(KEY_NAME, userService.getUsername(principal));
+        Object asd = userService.getUsername(principal);
+        Object bla = userService.username();
+
+        return Collections.singletonMap(KEY_NAME, asd);
     }
 
     //TODO: should be a POST method
