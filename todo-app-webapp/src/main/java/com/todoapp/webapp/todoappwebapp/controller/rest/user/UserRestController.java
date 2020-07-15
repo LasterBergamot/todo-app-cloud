@@ -1,9 +1,11 @@
 package com.todoapp.webapp.todoappwebapp.controller.rest.user;
 
+import com.todoapp.services.user.userservices.model.User;
 import com.todoapp.webapp.todoappwebapp.client.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.todoapp.webapp.todoappwebapp.util.Constants.KEY_NAME;
@@ -35,10 +39,9 @@ public class UserRestController {
     public Map<String, Object> getUsername(@AuthenticationPrincipal OAuth2User principal) {
         LOGGER.info("Getting username!");
 
-        Object asd = userService.getUsername(principal);
-        Object bla = userService.username();
+        Map<String, Object> asd = userService.getUsername(principal);
 
-        return Collections.singletonMap(KEY_NAME, asd);
+        return Collections.singletonMap(KEY_NAME, asd.get("name"));
     }
 
     //TODO: should be a POST method
@@ -48,5 +51,12 @@ public class UserRestController {
         LOGGER.info("Handling user!");
 
         return Collections.singletonMap(KEY_USER, userService.handleUser(principal));
+    }
+
+    @GetMapping("/users")
+    ResponseEntity<List<User>> getAllUsers() {
+        LOGGER.info("Getting all Users!");
+
+        return userService.getAllUsers();
     }
 }

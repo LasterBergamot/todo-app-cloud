@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 
+import java.util.List;
+
 import static com.todoapp.services.user.userservices.util.Constants.ATTRIBUTE_EMAIL;
 import static com.todoapp.services.user.userservices.util.Constants.ATTRIBUTE_ID;
 import static com.todoapp.services.user.userservices.util.Constants.ATTRIBUTE_LOGIN;
@@ -172,5 +174,12 @@ public class UserService implements IUserService {
         }
 
         return returnedUser;
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        LOGGER.info("Finding all Users!");
+
+        return userRepository.findAll();
     }
 }
