@@ -1,6 +1,7 @@
 package com.todoapp.webapp.todoappwebapp.client.todo;
 
 import com.todoapp.services.todo.todoservices.model.todo.Todo;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
