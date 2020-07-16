@@ -4,6 +4,10 @@ public class Constants {
 
     private Constants() {}
 
+    public static final String SERVICE_NAME_UTIL_SERVICES = "util-services";
+
+    public static final String REQUEST_MAPPING_CREATE_INDEX = "/createIndex";
+
     public static final String ERR_MSG_NULL_OR_EMPTY_ID = "The given id was null or empty!";
     public static final String ERR_MSG_NULL_JSON = "The given JSON was null!";
     public static final String ERR_MSG_NO_TODO_WAS_FOUND_WITH_THE_GIVEN_ID = "No Todo was found with the given ID!";

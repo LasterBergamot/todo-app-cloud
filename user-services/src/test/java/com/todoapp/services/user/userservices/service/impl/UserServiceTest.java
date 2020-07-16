@@ -1,10 +1,9 @@
 package com.todoapp.services.user.userservices.service.impl;
 
+import com.todoapp.services.user.userservices.client.util.UtilService;
 import com.todoapp.services.user.userservices.model.User;
 import com.todoapp.services.user.userservices.repository.UserRepository;
-import com.todoapp.services.util.utilservices.util.MongoUtil;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -26,17 +25,17 @@ import static org.mockito.Mockito.when;
 class UserServiceTest {
 
     private UserRepository userRepository;
-    private MongoUtil mongoUtil;
+    private UtilService utilService;
 
     private UserService userService;
 
     @BeforeEach
     void setUp() {
         userRepository = mock(UserRepository.class);
-        mongoUtil = mock(MongoUtil.class);
+        utilService = mock(UtilService.class);
     }
 
-    private static final Object[][] getAllUsersDataProvider() {
+    private static Object[][] getAllUsersDataProvider() {
         return new Object[][] {
                 {
                         Collections.emptyList()
@@ -68,11 +67,11 @@ class UserServiceTest {
         assertEquals(users, userService.getAllUsers());
 
         // VERIFY
-        verifyNoInteractions(mongoUtil);
+        verifyNoInteractions(utilService);
         verify(userRepository, times(1)).findAll();
     }
 
     private UserService createUserService() {
-        return new UserService(userRepository, mongoUtil);
+        return new UserService(userRepository, utilService);
     }
 }

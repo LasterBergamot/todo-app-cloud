@@ -1,10 +1,10 @@
 package com.todoapp.services.todo.todoservices.service.impl;
 
+import com.todoapp.services.todo.todoservices.client.UtilService;
 import com.todoapp.services.todo.todoservices.model.todo.Todo;
 import com.todoapp.services.todo.todoservices.repository.todo.TodoRepository;
 import com.todoapp.services.todo.todoservices.service.ITodoService;
 import com.todoapp.services.todo.todoservices.util.TodoUtil;
-import com.todoapp.services.util.utilservices.util.MongoUtil;
 import org.apache.commons.lang3.ObjectUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,17 +33,17 @@ public class TodoService implements ITodoService {
     private static final Logger LOGGER = LoggerFactory.getLogger(TodoService.class);
 
     private final TodoRepository todoRepository;
-    private final MongoUtil mongoUtil;
+    private final UtilService utilService;
 
     @Autowired
-    public TodoService(TodoRepository todoRepository, MongoUtil mongoUtil) {
+    public TodoService(TodoRepository todoRepository, UtilService utilService) {
         this.todoRepository = todoRepository;
-        this.mongoUtil = mongoUtil;
+        this.utilService = utilService;
     }
 
     @PostConstruct
     public void initIndexes() {
-        mongoUtil.createIndex("Creating index for the 'name' field of Todo.", COLLECTION_NAME_TODO, KEY_NAME, INDEX_NAME_TODO_NAME_INDEX);
+        utilService.createIndex("Creating index for the 'name' field of Todo.", COLLECTION_NAME_TODO, KEY_NAME, INDEX_NAME_TODO_NAME_INDEX);
     }
 
     /**
