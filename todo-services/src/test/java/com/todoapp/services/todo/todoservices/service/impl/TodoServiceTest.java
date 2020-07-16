@@ -1,9 +1,9 @@
 package com.todoapp.services.todo.todoservices.service.impl;
 
+import com.todoapp.services.todo.todoservices.client.UtilService;
 import com.todoapp.services.todo.todoservices.model.todo.Priority;
 import com.todoapp.services.todo.todoservices.model.todo.Todo;
 import com.todoapp.services.todo.todoservices.repository.todo.TodoRepository;
-import com.todoapp.services.util.utilservices.util.MongoUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -111,14 +111,14 @@ class TodoServiceTest {
     private TodoService todoService;
 
     private TodoRepository todoRepository;
-    private MongoUtil mongoUtil;
+    private UtilService utilService;
 
     private Validator validator;
 
     @BeforeEach
     public void setUp() {
         todoRepository = mock(TodoRepository.class);
-        mongoUtil = mock(MongoUtil.class);
+        utilService = mock(UtilService.class);
     }
 
     /*
@@ -425,6 +425,6 @@ class TodoServiceTest {
     }
 
     private TodoService getTodoService() {
-        return new TodoService(todoRepository, mongoUtil);
+        return new TodoService(todoRepository, utilService);
     }
 }
