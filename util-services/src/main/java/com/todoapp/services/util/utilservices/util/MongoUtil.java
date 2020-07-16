@@ -1,4 +1,4 @@
-package com.todoapp.services.todo.todoservices.util;
+package com.todoapp.services.util.utilservices.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
