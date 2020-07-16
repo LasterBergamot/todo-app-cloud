@@ -4,7 +4,10 @@ public class Constants {
 
     private Constants() {}
 
+    public static final String SERVICE_NAME_UTIL_SERVICES = "util-services";
+
     public static final String REQUEST_MAPPING_USERS = "/users";
+    public static final String REQUEST_MAPPING_CREATE_INDEX = "/createIndex";
 
     public static final String ERR_MSG_THE_GIVEN_PRINCIPAL_IS_NULL = "The given principal is null!";
     public static final String ERR_MSG_THE_PRINCIPAL_S_NAME_ATTRIBUTE_IS_NULL = "The principal's name attribute is null!";
