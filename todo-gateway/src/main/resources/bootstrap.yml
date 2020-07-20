@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: todogateway # name of yml file in config
+  cloud:
+    config:
+      uri: http://localhost:9000
